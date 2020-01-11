@@ -112,6 +112,16 @@ if(Math.sign(num) !== -1 && num < 2000){
 }
 }
 
+function optional(){
+console.log('hello');
+}
+
+function submitvalu(a){
+if(confirm('Are you submit this page')){
+a();
+}
+}
+
 </script>
     
 <div class="content">
@@ -241,7 +251,7 @@ if(Math.sign(num) !== -1 && num < 2000){
           <div class="btn-group" role="group" aria-label="Basic example">
             <input type="button" class="btn btn-secondary btn-lg my-2 pull-left" id="backk" value="Back" onclick="back();"/>
 
-            <input type="submit" class="btn btn-success  btn-lg my-2 pull-left" id="auto_click" value="Submit"/>
+            <input type="submit" class="btn btn-success  btn-lg my-2 pull-left" onclick="submitvalu(optional)" id="auto_click" value="Submit"/>
           </div>
         </form>
                 
