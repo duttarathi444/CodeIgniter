@@ -1,0 +1,94 @@
+both-all
+
+SELECT pm.product_name,
+cm.coach_name,
+cm.coach_email,
+clh.lending_date,
+cld.quantity,
+cld.expected_return_date FROM coach_master cm,
+coach_lending_header clh,
+coach_lending_details cld,
+product_master pm WHERE cm.user_id=clh.user_id AND 
+clh.user_id=cld.user_id AND 
+cld.user_id=1 AND cm.coach_master_id=clh.coach_id AND clh.coach_lending_head_id=cld.header_id AND 
+cld.product_id=pm.product_id;
+
+
+
+both-specific product_id 
+
+SELECT pm.product_name,
+cm.coach_name,
+cm.coach_email,
+clh.lending_date,
+cld.quantity,
+cld.expected_return_date FROM coach_master cm,
+coach_lending_header clh,
+coach_lending_details cld,
+product_master pm WHERE cm.user_id=clh.user_id AND 
+clh.user_id=cld.user_id AND 
+cld.user_id=1 AND cm.coach_master_id=clh.coach_id AND clh.coach_lending_head_id=cld.header_id AND 
+cld.product_id = pm.product_id AND pm.product_id=13;
+
+
+only lending-all
+
+SELECT pm.product_name,
+cm.coach_name,
+cm.coach_email,
+clh.lending_date,
+cld.quantity,
+cld.expected_return_date FROM coach_master cm,
+coach_lending_header clh,
+coach_lending_details cld,
+product_master pm WHERE cm.user_id=clh.user_id AND 
+clh.user_id=cld.user_id AND 
+cld.user_id=1 AND cm.coach_master_id=clh.coach_id AND clh.coach_lending_head_id=cld.header_id AND 
+cld.product_id = pm.product_id AND cld.status_no=0;
+
+
+only lending-specific product_id
+
+SELECT pm.product_name,
+cm.coach_name,
+cm.coach_email,
+clh.lending_date,
+cld.quantity,
+cld.expected_return_date FROM coach_master cm,
+coach_lending_header clh,
+coach_lending_details cld,
+product_master pm WHERE cm.user_id=clh.user_id AND 
+clh.user_id=cld.user_id AND 
+cld.user_id=1 AND cm.coach_master_id=clh.coach_id AND clh.coach_lending_head_id=cld.header_id AND 
+cld.product_id = pm.product_id AND cld.status_no=0 AND pm.product_id = 11
+
+only leanding back-all
+
+SELECT pm.product_name,
+cm.coach_name,
+cm.coach_email,
+clh.lending_date,
+cld.quantity,
+cld.expected_return_date FROM coach_master cm,
+coach_lending_header clh,
+coach_lending_details cld,
+product_master pm WHERE cm.user_id=clh.user_id AND 
+clh.user_id=cld.user_id AND 
+cld.user_id=1 AND cm.coach_master_id=clh.coach_id AND clh.coach_lending_head_id=cld.header_id AND 
+cld.product_id = pm.product_id AND cld.status_no=1;
+
+
+only lending-back-specific product_id
+
+SELECT pm.product_name,
+cm.coach_name,
+cm.coach_email,
+clh.lending_date,
+cld.quantity,
+cld.expected_return_date FROM coach_master cm,
+coach_lending_header clh,
+coach_lending_details cld,
+product_master pm WHERE cm.user_id=clh.user_id AND 
+clh.user_id=cld.user_id AND 
+cld.user_id=1 AND cm.coach_master_id=clh.coach_id AND clh.coach_lending_head_id=cld.header_id AND 
+cld.product_id = pm.product_id AND cld.status_no=1 AND pm.product_id=11;
